@@ -11,7 +11,7 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": ">=5.3.7",
+		"php": "^7.4.0",
 		"econea/nusoap": "0.9.11"
 	},
 	"suggest": {
