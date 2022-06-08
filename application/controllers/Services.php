@@ -59,14 +59,4 @@ class Services extends CI_Controller {
         $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA:'';
         $this->server->service(file_get_contents("php://input"));
 	}
-
-    // Direct menuju halaman supply
-    public function supply() {
-        $this->load->view('v_supply');
-    }
-
-    // Direct menuju halaman total supply
-    public function total_supply() {
-        $this->load->view('v_totalsupply');
-    }
 }
