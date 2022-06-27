@@ -52,7 +52,7 @@ class Api extends CI_Controller {
             return false;
         }
 
-        $result = $client->call('get_total_supply');
+        $result = $client->call('total_supply');
 
         // Check for a fault
         if ($client->fault) {
