@@ -41,7 +41,7 @@ class Services extends CI_Controller {
     public function index() {  
     
         // Mengatur bagian halaman pada user$this->load->view('welcome_message');
-		function get_supply($supply) {
+		function get_supply() {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
@@ -49,7 +49,7 @@ class Services extends CI_Controller {
             return $supply;
         }
 
-        function get_total_supply() {
+        function total_supply() {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
