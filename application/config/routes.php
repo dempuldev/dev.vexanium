@@ -50,7 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'services';
-$routes['api'] = 'api/supply';
-// $route['api'] = "api";
+
+// Routing ke halaman supply
+$route['supply'] = 'api/supply';
+
+// Routing ke halaman total supply
+$route['total_supply'] = 'api/total_supply';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
