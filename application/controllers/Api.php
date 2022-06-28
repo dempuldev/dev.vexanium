@@ -21,7 +21,7 @@ class Api extends CI_Controller {
             return false;
         }
 
-        $result = $client->call('get_supply');
+        $result = $client->call('supply');
 
         // Check for a fault
     if ($client->fault) {
@@ -37,7 +37,10 @@ class Api extends CI_Controller {
             } else {
                 // Display the result
                 // echo '<h2>Result</h2><pre>';
-                echo number_format((float) $result, 2, '.', ''); 
+                // echo number_format((float) $result, 2, '.', ''); 
+                $format = sprintf("%01.4f", $result);
+                echo $format;
+
             }
         }
     }
@@ -68,7 +71,9 @@ class Api extends CI_Controller {
                 } else {
                     // Display the result
                     // echo '<h2>Result</h2><pre>';
-                    echo number_format((float) $result, 2, '.', ''); 
+                    // echo number_format((float) $result, 2, '.', '');
+                    $format = sprintf("%01.4f", $result);
+                    echo $format; 
                 }
             }
         }
