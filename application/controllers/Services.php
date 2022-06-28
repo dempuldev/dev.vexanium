@@ -10,28 +10,28 @@ class Services extends CI_Controller {
         $this->server = new nusoap_server();  
         $this->server->configureWSDL("Vexanium Web Service", $soap_urn);
 
-        $input_supply = array('supply' => 'xsd:integer');
-        $output_supply = array('data' => 'xsd:integer');
+        $input_supply = array('supply' => 'xsd:decimal');
+        $output_supply = array('data' => 'xsd:decimal');
         $this->server->register(
-            "get_supply",           // method name
+            "supply",           // method name
             $input_supply,          // input parameters
             $output_supply,         //  output parameters
             $soap_urn,              // namespace
-            "$soap_urn#get_supply", // soapaction
+            "$soap_urn#supply", // soapaction
             'rpc', // style
             'encoded', // use
             'Return information on the current circulating supply vexanium.' // documentation
 
         );
 
-        $input_supply = array('tot_supply' => 'xsd:integer');
-        $output_supply = array('data' => 'xsd:integer');
+        $input_supply = array('total_supply' => 'xsd:decimal');
+        $output_supply = array('data' => 'xsd:decimal');
         $this->server->register(
-            "get_total_supply",           // method name
+            "total_supply",           // method name
             $input_supply,          // input parameters
             $output_supply,         //  output parameters
             $soap_urn,              // namespace
-            "$soap_urn#get_total_supply", // soapaction
+            "$soap_urn#total_supply", // soapaction
             'rpc', // style
             'encoded', // use
             'Return information on the current total supply vexanium.' // documentation
@@ -40,8 +40,8 @@ class Services extends CI_Controller {
     }
     public function index() {  
     
-        // Mengatur bagian halaman pada user$this->load->view('welcome_message');
-		function get_supply() {
+        // Masukan function name yang sudah di registrasi pada supply
+		function supply() {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
@@ -53,8 +53,8 @@ class Services extends CI_Controller {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
-            $tot_supply = $vex_data[0]['max_supply'];
-            return $tot_supply;
+            $total_supply = $vex_data[0]['max_supply'];
+            return $total_supply;
         }
         $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA:'';
         $this->server->service(file_get_contents("php://input"));

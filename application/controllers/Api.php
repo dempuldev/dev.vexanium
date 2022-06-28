@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -6,10 +6,13 @@ include_once (dirname(__FILE__) . "/Services.php");
 class Api extends CI_Controller {
     public function __construct() {
         parent::__construct();
+
     }
 
     public function index() {
-        
+        echo "<h1>Ini bagian halaman api</h1>";
+        // $this->load->library('../../Services.php'); 
+        // $this->Services->get_supply(); 
     }
     // Direct menuju halaman supply
     public function supply() {
@@ -21,7 +24,7 @@ class Api extends CI_Controller {
             return false;
         }
 
-        $result = $client->call('get_supply');
+        $result = $client->call('supply');
 
         // Check for a fault
     if ($client->fault) {
@@ -37,7 +40,12 @@ class Api extends CI_Controller {
             } else {
                 // Display the result
                 // echo '<h2>Result</h2><pre>';
-                echo number_format((float) $result, 2, '.', ''); 
+                // Konvert ke dalam format number
+                // echo number_format((float) $result, 2, '.', '');
+                $format = sprintf("%01.4f", $result);
+                echo $format;
+                
+                
             }
         }
     }
@@ -46,6 +54,7 @@ class Api extends CI_Controller {
     public function total_supply() {
         // $this->load->view('v_totalsupply');
         $wsdl  = base_url("/index.php?wsdl");
+        // Pakai modul dari nusoap vendor yang diimport pada composer
         $client = new nusoap_client($wsdl, true);
         $err = $client->getError();
         if ($err) {
@@ -68,7 +77,9 @@ class Api extends CI_Controller {
                 } else {
                     // Display the result
                     // echo '<h2>Result</h2><pre>';
-                    echo number_format((float) $result, 2, '.', ''); 
+                    // echo number_format((float) $result, 2, '.', '');
+                    $format = sprintf("%01.4f", $result);
+                    echo $format; 
                 }
             }
         }
