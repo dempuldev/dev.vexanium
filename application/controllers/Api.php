@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Loading controller services
 include_once (dirname(__FILE__) . "/Services.php");
 class Api extends CI_Controller {
     public function __construct() {
