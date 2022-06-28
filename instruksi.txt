@@ -1,0 +1,16 @@
+Configurasi penting ada di directory controller:
+Services.php => Buat SOAP Server.
+Api.php => Konfigurasi akses yang diperlukan oleh user.
+
+dan directory config ada:
+Routes.php => pembuatan akses ke url 
+Autoload.php => untuk mnegaktifkan helper ke url.
+Config.php => 
+{  
+    pembuatan akses ke base_url dinamis deploy ke hosting  
+    penghapusan index_page jadi null
+}
+
+Penambahan file .htaccess pada directory root sejajar dengan application
+
+
