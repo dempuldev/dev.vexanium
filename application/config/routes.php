@@ -51,6 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'services';
 
+// Routing ke halaman index halaman api dari controller services.
+$route['api'] = 'services';
+
 // Routing ke halaman supply
 $route['supply'] = 'api/supply';
 

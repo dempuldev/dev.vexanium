@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Loading controller api
+include_once (dirname(__FILE__) . "/Api.php");
+
 class Services extends CI_Controller {
     public function __construct() {
         parent::__construct();
@@ -47,14 +50,15 @@ class Services extends CI_Controller {
             $vex_data = json_decode(file_get_contents($api_url), true);
             $supply = $vex_data[0]['supply'];
             return $supply;
+            
         }
 
         function total_supply() {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
-            $tot_supply = $vex_data[0]['max_supply'];
-            return $tot_supply;
+            $total_supply = $vex_data[0]['max_supply'];
+            return $total_supply;
         }
         $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA:'';
         $this->server->service(file_get_contents("php://input"));
