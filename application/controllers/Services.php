@@ -40,7 +40,7 @@ class Services extends CI_Controller {
     }
     public function index() {  
     
-        // Masukan function name yang sudah di registrasi pada supply
+        // Mengatur bagian halaman pada user$this->load->view('welcome_message');
 		function supply() {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
@@ -53,8 +53,8 @@ class Services extends CI_Controller {
             $api_url = "https://explorer.vexanium.com/api/v1/get_vex_token";
 
             $vex_data = json_decode(file_get_contents($api_url), true);
-            $total_supply = $vex_data[0]['max_supply'];
-            return $total_supply;
+            $tot_supply = $vex_data[0]['max_supply'];
+            return $tot_supply;
         }
         $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA:'';
         $this->server->service(file_get_contents("php://input"));
